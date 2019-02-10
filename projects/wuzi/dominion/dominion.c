@@ -651,6 +651,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3,
   switch (card) {
     case adventurer:
       adventurerAction(currentPlayer, state);
+      return 0;
 
     case council_room:
       //+4 Cards
@@ -670,7 +671,6 @@ int cardEffect(int card, int choice1, int choice2, int choice3,
 
       // put played card in played card pile
       discardCard(handPos, currentPlayer, state, 0);
-
       return 0;
 
     case feast:
@@ -785,9 +785,11 @@ int cardEffect(int card, int choice1, int choice2, int choice3,
 
     case smithy:
       smithyAction(currentPlayer, state, handPos);
+      return 0;
 
     case village:
       villageAction(currentPlayer, state, handPos);
+      return 0;
 
     case baron:
       state->numBuys++;   // Increase buys by 1!
@@ -1246,7 +1248,6 @@ int adventurerAction(int currentPlayer, struct gameState *state) {
 int villageAction(int currentPlayer, struct gameState *state, int handPos) {
   //+1 Card
   drawCard(currentPlayer, state);
-
   //+2 Actions
   /*state->numActions = state->numActions + 2;*/
   // Bug introduced, instead of add two actions, number of actions is set to 2
@@ -1270,10 +1271,10 @@ int stewardAction(int currentPlayer, struct gameState *state, int handPos,
   }
   // Introduce a bug here, instead of choosing to trash 2 cards
   // always trash 2 cards when the card is played
-  discardCard(choice2, currentPlayer, state, 1);
-  discardCard(choice3, currentPlayer, state, 1);
+  /*discardCard(choice2, currentPlayer, state, 1);*/
+  /*discardCard(choice3, currentPlayer, state, 1);*/
   // discard card from hand
-  discardCard(handPos, currentPlayer, state, 0);
+  /*discardCard(handPos, currentPlayer, state, 0);*/
   return 0;
 }
 
