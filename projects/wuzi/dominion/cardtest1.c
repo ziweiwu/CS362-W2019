@@ -8,55 +8,44 @@
 #include "rngs.h"
 
 /*
-Functions to test
-
-villageAction
+test card village
 */
 static const int PLAYERS = 4;
 static const int CURRENT_PLAYER = 0;
 
-void testVillageAction() {
-  int allPassed = 0;
-
+void testVillage() {
   int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
   int k[10] = {adventurer, council_room, feast,   gardens, mine,
                remodel,    smithy,       village, baron,   great_hall};
   struct gameState G;
   initializeGame(PLAYERS, k, 1, &G);
 
-  int original_hand_size = G.handCount[CURRENT_PLAYER];
-  int original_num_actions = G.numActions;
-  
-  cardEffect(village, choice1, choice2, choice3, &G, handpos, &bonus);
   // Assert +1 card
-  if (assert(G.handCount[CURRENT_PLAYER], original_hand_size + 1 - 1)) {
-    printf("villageAction: PASS, draw 1 card\n");
-  } else {
-    allPassed++;
+  int original_hand_size = G.handCount[CURRENT_PLAYER];
+  /*printf("original hand size is %d\n", original_hand_size);*/
+  for (int i = 0; i < 5; i++) {
+    cardEffect(village, choice1, choice2, choice3, &G, handpos, &bonus);
+    if (assert(G.handCount[CURRENT_PLAYER], original_hand_size)) {
+      printf("played village, hand size remains at %d\n", original_hand_size);
+    }
   }
 
-  // Assert +2 action
-  if (assert(G.numActions, original_num_actions + 2 - 1)) {
-    printf("villageAction: PASS, add 2 actions\n");
-  } else {
-    allPassed++;
-  }
-
-  // reset game state
   memset(&G, 23, sizeof(struct gameState));
   initializeGame(PLAYERS, k, 1, &G);
 
-  if (allPassed==2) {
-    printf("---villageAction: All Passed---\n");
-  } else if(allPassed == 0){
-    printf("---villageAction: None Passed ---\n");
-  }else{
-    printf("---villageAction: Some Passed ---\n");
+  // Assert +2 action
+  int original_num_actions = G.numActions;
+  /*printf("original number of actions is %d\n", original_num_actions);*/
+  for (int i = 0; i < 5; i++) {
+    cardEffect(village, choice1, choice2, choice3, &G, handpos, &bonus);
+    if (assert(G.numActions, original_num_actions + 2 * (i + 1))) {
+      printf("played village, added 2 actions\n");
+    }
   }
 }
 
 int main() {
   printf("---Testing for villageAction---\n");
-  testVillageAction();
+  testVillage();
   return 0;
 }
