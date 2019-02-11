@@ -24,9 +24,9 @@ PASS: 2 equals to 2
 PASS: 3 equals to 3
 ---TEST PASSED---
 File 'dominion.c'
-Lines executed:21.01% of 695
-Branches executed:18.35% of 425
-Taken at least once:15.53% of 425
+Lines executed:31.80% of 695
+Branches executed:33.18% of 425
+Taken at least once:25.65% of 425
 No calls
 dominion.c:creating 'dominion.c.gcov'
 
@@ -51,9 +51,9 @@ PASS: 1 equals to 1
 PASS: 0 equals to 0
 ---TEST PASSED---
 File 'dominion.c'
-Lines executed:23.31% of 695
-Branches executed:19.76% of 425
-Taken at least once:16.47% of 425
+Lines executed:31.80% of 695
+Branches executed:33.18% of 425
+Taken at least once:25.65% of 425
 No calls
 dominion.c:creating 'dominion.c.gcov'
 
@@ -84,9 +84,9 @@ PASS: 12 equals to 12
 PASS: 13 equals to 13
 ---TEST PASSED---
 File 'dominion.c'
-Lines executed:24.89% of 695
-Branches executed:22.59% of 425
-Taken at least once:19.29% of 425
+Lines executed:31.80% of 695
+Branches executed:33.18% of 425
+Taken at least once:25.65% of 425
 No calls
 dominion.c:creating 'dominion.c.gcov'
 
@@ -131,9 +131,9 @@ PASS: 0 equals to 0
 PASS: 1 equals to 1
 ---TEST PASSED---
 File 'dominion.c'
-Lines executed:26.62% of 695
-Branches executed:24.47% of 425
-Taken at least once:21.18% of 425
+Lines executed:31.80% of 695
+Branches executed:33.18% of 425
+Taken at least once:25.65% of 425
 No calls
 dominion.c:creating 'dominion.c.gcov'
 
@@ -206,9 +206,9 @@ PASS: 10 equals to 10
 PASS: 12 equals to 12
 ---TEST FAILED---
 File 'dominion.c'
-Lines executed:28.35% of 695
-Branches executed:29.88% of 425
-Taken at least once:21.65% of 425
+Lines executed:31.80% of 695
+Branches executed:33.18% of 425
+Taken at least once:25.65% of 425
 No calls
 dominion.c:creating 'dominion.c.gcov'
 
@@ -280,9 +280,9 @@ PASS: 10 equals to 10
 PASS: 12 equals to 12
 ---TEST PASSED---
 File 'dominion.c'
-Lines executed:28.92% of 695
-Branches executed:29.88% of 425
-Taken at least once:21.88% of 425
+Lines executed:31.80% of 695
+Branches executed:33.18% of 425
+Taken at least once:25.65% of 425
 No calls
 dominion.c:creating 'dominion.c.gcov'
 
@@ -354,9 +354,9 @@ PASS: 10 equals to 10
 PASS: 12 equals to 12
 ---TEST FAILED---
 File 'dominion.c'
-Lines executed:29.93% of 695
-Branches executed:30.35% of 425
-Taken at least once:23.06% of 425
+Lines executed:31.80% of 695
+Branches executed:33.18% of 425
+Taken at least once:25.65% of 425
 No calls
 dominion.c:creating 'dominion.c.gcov'
 
