@@ -7,41 +7,37 @@
 #include "myAssert.h"
 #include "rngs.h"
 
-/*
-Functions to test
-
-whoseTurn
-*/
 static const int PLAYERS = 4;
 static const int SEED = 1;
+
+/*
+test function whoseTurn
+*/
 void testWhoseTurn() {
+  printf("---Testing for whoseTurn---\n");
   int k[10] = {adventurer, council_room, feast,   gardens, mine,
                remodel,    smithy,       village, baron,   great_hall};
   struct gameState G;
   initializeGame(PLAYERS, k, SEED, &G);
 
-  assert(whoseTurn(&G), 0);
-  printf("whoseTurn, player 1's turn\n");
+  // This loops ran endturn() 20 times
+  // and check if whoseTurn return the right value
+  int allPassed = 1;
+  for (int i = 0; i < 20; i++) {
+    if (assert(whoseTurn(&G), i % 4) == 0) {
+      allPassed = -1;
+    }
+    endTurn(&G);
+  }
 
-  endTurn(&G);
-  assert(whoseTurn(&G), 1);
-  printf("whoseTurn, player 2's turn\n");
-
-  endTurn(&G);
-  assert(whoseTurn(&G), 2);
-  printf("whoseTurn, player 3's turn\n");
-
-  endTurn(&G);
-  assert(whoseTurn(&G), 3);
-  printf("whoseTurn, player 4's turn\n");
-
-  endTurn(&G);
-  assert(whoseTurn(&G), 0);
-  printf("whoseTurn, player 1's turn\n");
+  if (allPassed == -1) {
+    printf("---TEST FAILED---\n");
+  } else {
+    printf("---TEST PASSED---\n");
+  }
 }
 
 int main() {
-  printf("---Testing for whoseTurn---\n");
   testWhoseTurn();
   return 0;
 }

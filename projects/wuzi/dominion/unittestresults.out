@@ -1,0 +1,638 @@
+Results for running unit tests:
+Regular function tests
+unittest1.c:
+---Testing for whoseTurn---
+PASS: 0 equals to 0
+PASS: 1 equals to 1
+PASS: 2 equals to 2
+PASS: 3 equals to 3
+PASS: 0 equals to 0
+PASS: 1 equals to 1
+PASS: 2 equals to 2
+PASS: 3 equals to 3
+PASS: 0 equals to 0
+PASS: 1 equals to 1
+PASS: 2 equals to 2
+PASS: 3 equals to 3
+PASS: 0 equals to 0
+PASS: 1 equals to 1
+PASS: 2 equals to 2
+PASS: 3 equals to 3
+PASS: 0 equals to 0
+PASS: 1 equals to 1
+PASS: 2 equals to 2
+PASS: 3 equals to 3
+---TEST PASSED---
+File 'dominion.c'
+Lines executed:21.01% of 695
+Branches executed:18.35% of 425
+Taken at least once:15.53% of 425
+No calls
+dominion.c:creating 'dominion.c.gcov'
+
+
+unittest2.c:
+---Testing for numHandCards---
+PASS: 5 equals to 5
+PASS: 6 equals to 6
+PASS: 7 equals to 7
+PASS: 8 equals to 8
+PASS: 9 equals to 9
+PASS: 10 equals to 10
+PASS: 9 equals to 9
+PASS: 8 equals to 8
+PASS: 7 equals to 7
+PASS: 6 equals to 6
+PASS: 5 equals to 5
+PASS: 4 equals to 4
+PASS: 3 equals to 3
+PASS: 2 equals to 2
+PASS: 1 equals to 1
+PASS: 0 equals to 0
+---TEST PASSED---
+File 'dominion.c'
+Lines executed:23.31% of 695
+Branches executed:19.76% of 425
+Taken at least once:16.47% of 425
+No calls
+dominion.c:creating 'dominion.c.gcov'
+
+
+unittest3.c:
+---Testing for fullDeckCount---
+PASS: 3 equals to 3
+PASS: 7 equals to 7
+PASS: 8 equals to 8
+PASS: 9 equals to 9
+PASS: 10 equals to 10
+PASS: 11 equals to 11
+PASS: 12 equals to 12
+PASS: 4 equals to 4
+PASS: 5 equals to 5
+PASS: 6 equals to 6
+PASS: 7 equals to 7
+PASS: 8 equals to 8
+PASS: 13 equals to 13
+PASS: 14 equals to 14
+PASS: 15 equals to 15
+PASS: 16 equals to 16
+PASS: 17 equals to 17
+PASS: 9 equals to 9
+PASS: 10 equals to 10
+PASS: 11 equals to 11
+PASS: 12 equals to 12
+PASS: 13 equals to 13
+---TEST PASSED---
+File 'dominion.c'
+Lines executed:24.89% of 695
+Branches executed:22.59% of 425
+Taken at least once:19.29% of 425
+No calls
+dominion.c:creating 'dominion.c.gcov'
+
+
+unittest4.c:
+---Testing for isGameOver---
+PASS: 0 equals to 0
+PASS: 0 equals to 0
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 0 equals to 0
+PASS: 0 equals to 0
+PASS: 0 equals to 0
+PASS: 0 equals to 0
+PASS: 0 equals to 0
+PASS: 0 equals to 0
+PASS: 0 equals to 0
+PASS: 0 equals to 0
+PASS: 0 equals to 0
+PASS: 0 equals to 0
+PASS: 1 equals to 1
+---TEST PASSED---
+File 'dominion.c'
+Lines executed:26.62% of 695
+Branches executed:24.47% of 425
+Taken at least once:21.18% of 425
+No calls
+dominion.c:creating 'dominion.c.gcov'
+
+
+Card function tests
+cardtest1.c:
+---Testing for Village---
+Assert card effect
+Hand count
+PASS: 5 equals to 5
+Deck count
+PASS: 4 equals to 4
+Number of actions
+FAIL: 2 not equals to 3
+Number of buys
+PASS: 1 equals to 1
+Coins
+PASS: 4 equals to 4
+Assert state change for other players
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+Assert state change for victoria pile
+PASS: 12 equals to 12
+PASS: 12 equals to 12
+PASS: 12 equals to 12
+Assert state change for kingdom pile
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 12 equals to 12
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 12 equals to 12
+---TEST FAILED---
+File 'dominion.c'
+Lines executed:28.35% of 695
+Branches executed:29.88% of 425
+Taken at least once:21.65% of 425
+No calls
+dominion.c:creating 'dominion.c.gcov'
+
+
+cardtest2.c:
+---Testing for Great hall---
+Assert card effect
+Hand count
+PASS: 5 equals to 5
+Deck count
+PASS: 4 equals to 4
+Number of actions
+PASS: 2 equals to 2
+Number of buys
+PASS: 1 equals to 1
+Coins
+PASS: 4 equals to 4
+Assert state change for other players
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+Assert state change for victoria pile
+PASS: 12 equals to 12
+PASS: 12 equals to 12
+PASS: 12 equals to 12
+Assert state change for kingdom pile
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 12 equals to 12
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 12 equals to 12
+---TEST PASSED---
+File 'dominion.c'
+Lines executed:28.92% of 695
+Branches executed:29.88% of 425
+Taken at least once:21.88% of 425
+No calls
+dominion.c:creating 'dominion.c.gcov'
+
+
+cardtest3.c:
+---Testing for Smithy---
+Assert card effect
+Hand count
+FAIL: 9 not equals to 7
+Deck count
+FAIL: 0 not equals to 2
+Number of actions
+PASS: 1 equals to 1
+Number of buys
+PASS: 1 equals to 1
+Coins
+PASS: 4 equals to 4
+Assert state change for other players
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+Assert state change for victoria pile
+PASS: 12 equals to 12
+PASS: 12 equals to 12
+PASS: 12 equals to 12
+Assert state change for kingdom pile
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 12 equals to 12
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 12 equals to 12
+---TEST FAILED---
+File 'dominion.c'
+Lines executed:29.93% of 695
+Branches executed:30.35% of 425
+Taken at least once:23.06% of 425
+No calls
+dominion.c:creating 'dominion.c.gcov'
+
+
+cardtest4.c:
+---Testing for Adventurer---
+Assert card effect for copper treasure
+Hand count
+PASS: 7 equals to 7
+Deck count
+PASS: 3 equals to 3
+if added treasure to hand
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+Number of actions
+PASS: 1 equals to 1
+Number of buys
+PASS: 1 equals to 1
+Coins
+PASS: 4 equals to 4
+Assert state change for other players
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+Assert state change for victoria pile
+PASS: 12 equals to 12
+PASS: 12 equals to 12
+PASS: 12 equals to 12
+Assert state change for kingdom pile
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 12 equals to 12
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 12 equals to 12
+Assert card effect for silver treasure
+Hand count
+PASS: 7 equals to 7
+Deck count
+PASS: 3 equals to 3
+if added treasure to hand
+PASS: 5 equals to 5
+PASS: 5 equals to 5
+Number of actions
+PASS: 1 equals to 1
+Number of buys
+PASS: 1 equals to 1
+Coins
+PASS: 4 equals to 4
+Assert state change for other players
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+Assert state change for victoria pile
+PASS: 12 equals to 12
+PASS: 12 equals to 12
+PASS: 12 equals to 12
+Assert state change for kingdom pile
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 12 equals to 12
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 12 equals to 12
+Assert card effect for gold treasure
+Hand count
+PASS: 7 equals to 7
+Deck count
+PASS: 3 equals to 3
+if added treasure to hand
+PASS: 6 equals to 6
+PASS: 6 equals to 6
+Number of actions
+PASS: 1 equals to 1
+Number of buys
+PASS: 1 equals to 1
+Coins
+PASS: 4 equals to 4
+Assert state change for other players
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+Assert state change for victoria pile
+PASS: 12 equals to 12
+PASS: 12 equals to 12
+PASS: 12 equals to 12
+Assert state change for kingdom pile
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 12 equals to 12
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 12 equals to 12
+Assert card effect when deck is empty
+Hand count
+PASS: 7 equals to 7
+Deck count
+PASS: 0 equals to 0
+if added treasure to hand
+PASS: 4 equals to 4
+PASS: 5 equals to 5
+Number of actions
+PASS: 1 equals to 1
+Number of buys
+PASS: 1 equals to 1
+Coins
+PASS: 4 equals to 4
+Assert state change for other players
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 1 equals to 1
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 0 equals to 0
+PASS: 10 equals to 10
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+PASS: 4 equals to 4
+PASS: 1 equals to 1
+Assert state change for victoria pile
+PASS: 12 equals to 12
+PASS: 12 equals to 12
+PASS: 12 equals to 12
+Assert state change for kingdom pile
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 12 equals to 12
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 10 equals to 10
+PASS: 12 equals to 12
+---TEST PASSED---
+File 'dominion.c'
+Lines executed:31.80% of 695
+Branches executed:33.18% of 425
+Taken at least once:25.65% of 425
+No calls
+dominion.c:creating 'dominion.c.gcov'
+
+All Done!

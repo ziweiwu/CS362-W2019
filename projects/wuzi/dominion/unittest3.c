@@ -7,63 +7,80 @@
 #include "myAssert.h"
 #include "rngs.h"
 
-/*
-Functions to test
-
-fullDeckCount: return the total count of a specific card from hand + deck +
-discard
-*/
-
 static const int PLAYERS = 4;
 static const int CURRENT_PLAYER = 0;
 static const int SEED = 1;
+static const int STARTING_ESTATE = 3;
+static const int STARTING_COPPER = 7;
 
+/*
+test function fullDeckCount
+*/
 void testFullDeckCount() {
+  printf("---Testing for fullDeckCount---\n");
   int k[10] = {adventurer, council_room, feast,   gardens, mine,
                remodel,    smithy,       village, baron,   great_hall};
   struct gameState G;
   initializeGame(PLAYERS, k, SEED, &G);
 
+  int estate_count = STARTING_ESTATE;
+  int copper_count = STARTING_COPPER;
+
+  int allPassed = 1;
   // Test for initial deck
-  int estate_count = fullDeckCount(CURRENT_PLAYER, estate, &G);
-  assert(estate_count, 3);
-  printf("fullDeckCount, estate count is 3\n");
+  ;
+  if (assert(fullDeckCount(CURRENT_PLAYER, estate, &G), estate_count) == 0) {
+    allPassed = -1;
+  }
 
-  int copper_count = fullDeckCount(CURRENT_PLAYER, copper, &G);
-  assert(copper_count, 7);
-  printf("fullDeckCount, copper count is 7\n");
+  if (assert(fullDeckCount(CURRENT_PLAYER, copper, &G), copper_count) == 0) {
+    allPassed = -1;
+  }
 
-  // Add three more cards to discard
-  G.discard[CURRENT_PLAYER][0] = copper;
-  G.discard[CURRENT_PLAYER][1] = copper;
-  G.discard[CURRENT_PLAYER][2] = estate;
-  G.discardCount[CURRENT_PLAYER] = 3;
+  // Test adding cards to discard
+  for (int i = 0; i < 5; i++) {
+    G.discard[CURRENT_PLAYER][i] = copper;
+    G.discardCount[CURRENT_PLAYER]++;
+    copper_count++;
+    if (assert(fullDeckCount(CURRENT_PLAYER, copper, &G), copper_count) == 0) {
+      allPassed = -1;
+    }
+  }
+  for (int i = 5; i < 10; i++) {
+    G.discard[CURRENT_PLAYER][i] = estate;
+    G.discardCount[CURRENT_PLAYER]++;
+    estate_count++;
+    if (assert(fullDeckCount(CURRENT_PLAYER, estate, &G), estate_count) == 0) {
+      allPassed = -1;
+    }
+  }
 
-  estate_count = fullDeckCount(CURRENT_PLAYER, estate, &G);
-  assert(estate_count, 4);
-  printf("fullDeckCount, estate count is 4\n");
+  // Test adding cards to deck
+  for (int i = 10; i < 15; i++) {
+    G.discard[CURRENT_PLAYER][i] = copper;
+    G.discardCount[CURRENT_PLAYER]++;
+    copper_count++;
+    if (assert(fullDeckCount(CURRENT_PLAYER, copper, &G), copper_count) == 0) {
+      allPassed = -1;
+    }
+  }
+  for (int i = 15; i < 20; i++) {
+    G.discard[CURRENT_PLAYER][i] = estate;
+    G.discardCount[CURRENT_PLAYER]++;
+    estate_count++;
+    if (assert(fullDeckCount(CURRENT_PLAYER, estate, &G), estate_count) == 0) {
+      allPassed = -1;
+    }
+  }
 
-  copper_count = fullDeckCount(CURRENT_PLAYER, copper, &G);
-  assert(copper_count, 9);
-  printf("fullDeckCount, copper count is 9\n");
-
-  // Add three more cards to deck
-  G.deck[CURRENT_PLAYER][10] = copper;
-  G.deck[CURRENT_PLAYER][11] = copper;
-  G.deck[CURRENT_PLAYER][12] = estate;
-  G.deckCount[CURRENT_PLAYER] = G.deckCount[CURRENT_PLAYER] + 3;
-
-  estate_count = fullDeckCount(CURRENT_PLAYER, estate, &G);
-  assert(estate_count, 5);
-  printf("fullDeckCount, estate count is 5\n");
-
-  copper_count = fullDeckCount(CURRENT_PLAYER, copper, &G);
-  assert(copper_count, 11);
-  printf("fullDeckCount, copper count is 11\n");
+  if (allPassed == -1) {
+    printf("---TEST FAILED---\n");
+  } else {
+    printf("---TEST PASSED---\n");
+  }
 }
 
 int main() {
-  printf("---Testing for fullDeckCount---\n");
   testFullDeckCount();
   return 0;
 }

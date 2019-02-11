@@ -7,17 +7,15 @@
 #include "myAssert.h"
 #include "rngs.h"
 
-/*
-Functions to test
-
-numHandCards
-
-*/
 static const int PLAYERS = 4;
 static const int NUM_CARDS_STARTING = 5;
 static const int SEED = 1;
 
+/*
+  test function numHandCards
+*/
 void testNumHandCards() {
+  printf("---Testing for numHandCards---\n");
   int k[10] = {adventurer, council_room, feast,   gardens, mine,
                remodel,    smithy,       village, baron,   great_hall};
 
@@ -25,26 +23,35 @@ void testNumHandCards() {
   initializeGame(PLAYERS, k, SEED, &G);
 
   // test starting hand
-  assert(numHandCards(&G), NUM_CARDS_STARTING);
-  printf("numHandCards, number of cards in starting hand is 5\n");
+  int allPassed = 1;
+  if (assert(numHandCards(&G), NUM_CARDS_STARTING) == 0) {
+    allPassed = -1;
+  };
 
   // test after draw more cards
   for (int i = 0; i < 5; i++) {
     drawCard(whoseTurn(&G), &G);
-    assert(numHandCards(&G), NUM_CARDS_STARTING + i + 1);
-    printf("numHandCards, number of cards in starting hand is %d\n", 5 + i + 1);
+    if (assert(numHandCards(&G), NUM_CARDS_STARTING + i + 1) == 0) {
+      allPassed = -1;
+    }
   }
 
   // test for discarding
   for (int i = 0; i < 10; i++) {
     discardCard(10 - i, whoseTurn(&G), &G, 0);
-    assert(numHandCards(&G), 10 - i - 1);
-    printf("numHandCards, number of cards in the hand is %d\n", 10 - i - 1);
+    if (assert(numHandCards(&G), 10 - i - 1) == 0) {
+      allPassed = -1;
+    }
+  }
+
+  if (allPassed == -1) {
+    printf("---TEST FAILED---\n");
+  } else {
+    printf("---TEST PASSED---\n");
   }
 }
 
 int main() {
-  printf("---Testing for numHandCards---\n");
   testNumHandCards();
   return 0;
 }
