@@ -24,11 +24,30 @@ testAll: dominion.o testSuite.c
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
+myAssert.o: myAssert.h myAssert.c
+	gcc -c myAssert.c -g  $(CFLAGS)
+
 runtests: testDrawCard 
 	./testDrawCard &> unittestresult.out
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
 
+randomtestresults: randomtestcard1.c randomtestcard2.c dominion.o rngs.o myAssert.o 
+	echo "Results for running unit tests:" > randomtestresults.out
+	
+	echo "" >> randomtestresults.out
+	echo "randomtestcard1.c:" >> randomtestresults.out
+	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o myAssert.o $(CFLAGS)
+	./randomtestcard1 >> randomtestresults.out 
+	gcov -b dominion.c >> randomtestresults.out
+	
+	echo "" >> randomtestresults.out
+	echo "randomtestcard2.c:" >> randomtestresults.out
+	gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o myAssert.o $(CFLAGS)
+	./randomtestcard2 >> randomtestresults.out
+	gcov -b dominion.c >> randomtestresults.out
+	
+	cat randomtestresults.out
 
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
