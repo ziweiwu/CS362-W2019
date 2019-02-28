@@ -651,6 +651,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3,
   switch (card) {
     case adventurer:
       adventurerAction(currentPlayer, state);
+      return 0;
 
     case council_room:
       //+4 Cards
@@ -788,6 +789,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3,
 
     case village:
       villageAction(currentPlayer, state, handPos);
+      return 0;
 
     case baron:
       state->numBuys++;   // Increase buys by 1!
@@ -1218,7 +1220,7 @@ int adventurerAction(int currentPlayer, struct gameState *state) {
     if (state->deckCount[currentPlayer] < 1) {
       // if the deck is empty we need to shuffle discard and add to deck
       // bugs introduce: discard is not shuffled
-      /*shuffle(currentPlayer, state);*/
+      shuffle(currentPlayer, state);
     }
     drawCard(currentPlayer, state);
     cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer] - 1];
