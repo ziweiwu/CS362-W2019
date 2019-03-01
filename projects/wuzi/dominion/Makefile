@@ -47,6 +47,12 @@ randomtestresults: randomtestcard1.c randomtestcard2.c dominion.o rngs.o myAsser
 	./randomtestcard2 >> randomtestresults.out
 	gcov -b dominion.c >> randomtestresults.out
 	
+	echo "" >> randomtestresults.out
+	echo "randomtestadventurer.c:" >> randomtestresults.out
+	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o myAssert.o $(CFLAGS)
+	./randomtestadventurer >> randomtestresults.out
+	gcov -b dominion.c >> randomtestresults.out
+	
 	cat randomtestresults.out
 
 player: player.c interface.o

@@ -1220,7 +1220,7 @@ int adventurerAction(int currentPlayer, struct gameState *state) {
     if (state->deckCount[currentPlayer] < 1) {
       // if the deck is empty we need to shuffle discard and add to deck
       // bugs introduce: discard is not shuffled
-      shuffle(currentPlayer, state);
+			/*shuffle(currentPlayer, state);*/
     }
     drawCard(currentPlayer, state);
     cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer] - 1];
