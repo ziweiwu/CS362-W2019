@@ -32,28 +32,31 @@ runtests: testDrawCard
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
 
-randomtestresults: randomtestcard1.c randomtestcard2.c dominion.o rngs.o myAssert.o 
-	echo "Results for running unit tests:" > randomtestresults.out
-	
-	echo "" >> randomtestresults.out
-	echo "randomtestcard1.c:" >> randomtestresults.out
+randomtestcard1: randomtestcard1.c dominion.o rngs.o myAssert.o 
+	echo "Results for running unit tests:" > randomtestcard1.out
+	echo "randomtestcard1.c:" >> randomtestcard1.out
 	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o myAssert.o $(CFLAGS)
-	./randomtestcard1 >> randomtestresults.out 
-	gcov -b dominion.c >> randomtestresults.out
+	./randomtestcard1 >> randomtestcard1.out 
+	gcov -b dominion.c >> randomtestcard1.out
+	cat randomtestcard1.out
 	
-	echo "" >> randomtestresults.out
-	echo "randomtestcard2.c:" >> randomtestresults.out
+randomtestcard2: randomtestcard2.c dominion.o rngs.o myAssert.o 
+	echo "Results for running unit tests:" > randomtestcard2.out
+	echo "randomtestcard2.c:" >> randomtestcard2.out
 	gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o myAssert.o $(CFLAGS)
-	./randomtestcard2 >> randomtestresults.out
-	gcov -b dominion.c >> randomtestresults.out
+	./randomtestcard2 >> randomtestcard2.out
+	gcov -b dominion.c >> randomtestcard2.out
+	cat randomtestcard2.out
 	
-	echo "" >> randomtestresults.out
-	echo "randomtestadventurer.c:" >> randomtestresults.out
+randomtestadventurer: randomtestadventurer.c dominion.o rngs.o myAssert.o 
+	echo "Results for running unit tests:" > randomtestadventurer.out
+	echo "randomtestadventurer.c:" >> randomtestadventurer.out
 	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o myAssert.o $(CFLAGS)
-	./randomtestadventurer >> randomtestresults.out
-	gcov -b dominion.c >> randomtestresults.out
-	
-	cat randomtestresults.out
+	./randomtestadventurer >> randomtestadventurer.out
+	gcov -b dominion.c >> randomtestadventurer.out
+	cat randomtestadventurer.out
+
+randomtestresults: randomtestcard1 randomtestcard2 randomtestadventurer
 
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)

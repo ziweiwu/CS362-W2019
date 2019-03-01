@@ -27,29 +27,30 @@ int testGreatHall(int player, struct gameState* G) {
   memcpy(&T, G, sizeof(struct gameState));
 
   cardEffect(great_hall, choice1, choice2, choice3, &T, handpos, &bonus);
-	
-	// check for state changes of current player	
-	printf("Hand count\n");
+
+  // check for state changes of current player
+  printf("Hand count\n");
   if (assert(T.handCount[player], G->handCount[player]) == 0) {
     allPassed = 0;
   }
- 
- 	printf("Deck count\n");
-  if (assert(T.deckCount[player], G->deckCount[player] - 1) == 0) {
+
+  printf("Deck count\n");
+  if (assert(T.deckCount[player], G->deckCount[player] - 1) ==
+      0) {
     allPassed = 0;
   }
 
-	printf("Number of actions\n");
+  printf("Number of actions\n");
   if (assert(T.numActions, G->numActions + 1) == 0) {
     allPassed = 0;
   }
- 
- 	printf("Number of buys\n");
+
+  printf("Number of buys\n");
   if (assert(T.numBuys, G->numBuys) == 0) {
     allPassed = 0;
   }
 
-	printf("Coins\n");
+  printf("Coins\n");
   if (assert(T.coins, G->coins) == 0) {
     allPassed = 0;
   }
@@ -84,10 +85,11 @@ void testGreatHallRandom() {
   struct gameState G;
   for (int n = 0; n < TOTAL_RUNS; n++) {
     // At least two players are needed
-    int total_players = floor(Random() * MAX_PLAYERS - 1) + MIN_PLAYERS;
+    int total_players = floor(Random() * (MAX_PLAYERS - 1)) + MIN_PLAYERS;
 
     memset(&G, 0, sizeof(struct gameState));
-    initializeGame(total_players, K, SEED, &G);
+    int randomSeed = floor(Random()*100);
+    initializeGame(total_players, K, randomSeed, &G);
 
     // random set game state
     int player = floor(Random() * total_players);
@@ -95,25 +97,25 @@ void testGreatHallRandom() {
     G.discardCount[player] = floor(Random() * MAX_DECK);
     G.handCount[player] = floor(Random() * MAX_HAND);
     G.whoseTurn = player;
-		
-		// run tests		
+
+    // run tests
     numPasses += testGreatHall(player, &G);
   }
-	
-	// no tests passed
+
+  // no tests passed
   if (numPasses == 0) {
     printf("None of the random tests passed for %s\n", CARD_NAME);
     return;
   }
-	
-	// some tests passed 
+
+  // some tests passed
   if (numPasses < TOTAL_RUNS) {
     printf("%d out of %d random tests passed for %s\n", numPasses, TOTAL_RUNS,
            CARD_NAME);
     return;
   }
 
-	// all tests passed	
+  // all tests passed
   if (numPasses == TOTAL_RUNS) {
     printf("All random tests passed for %s\n", CARD_NAME);
     return;

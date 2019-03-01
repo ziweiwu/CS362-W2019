@@ -13,7 +13,6 @@ static char* const CARD_NAME = "Adventurer";
 static int SEED = 1;
 static int TOTAL_RUNS = 20000;
 static int MIN_PLAYERS = 2;
-static int MIN_DECK_SIZE = 3;
 static int K[10] = {adventurer, council_room, feast,   gardens, mine,
                     remodel,    smithy,       village, baron,   great_hall};
 
@@ -40,10 +39,12 @@ int testAdventurer(int player, int treasure, struct gameState* G) {
   // if there are two treasures in the deck
   if (num_treasures >= 2) {
     printf("There are more than two treasure cards\n");
+
     printf("Hand count\n");
     if (assert(T.handCount[player], G->handCount[player] + 2) == 0) {
       allPassed = 0;
     }
+
     printf("if added treasure to hand\n");
     if (assert(T.hand[player][G->handCount[player]], treasure) == 0) {
       allPassed = 0;
@@ -56,10 +57,12 @@ int testAdventurer(int player, int treasure, struct gameState* G) {
   // if there is one treasure in the deck
   if (num_treasures == 1) {
     printf("There are only 1 treasure card\n");
+
     printf("Hand count\n");
     if (assert(T.handCount[player], G->handCount[player] + 1) == 0) {
       allPassed = 0;
     }
+
     printf("if added treasure to hand\n");
     if (assert(T.hand[player][G->handCount[player]], treasure) == 0) {
       allPassed = 0;
@@ -69,10 +72,12 @@ int testAdventurer(int player, int treasure, struct gameState* G) {
   // if there is no treasure, treasure cards are drawned from discard
   if (num_treasures == 0) {
     printf("There are no treasure cards, shuffle and drawn from discard\n");
+
     printf("Hand count\n");
     if (assert(T.handCount[player], G->handCount[player] + 2) == 0) {
       allPassed = 0;
     }
+
     printf("if added treasure to hand\n");
     if (assert(T.hand[player][G->handCount[player]], treasure) == 0) {
       allPassed = 0;
@@ -82,23 +87,28 @@ int testAdventurer(int player, int treasure, struct gameState* G) {
     }
   }
 
-  // Check for the consistent states
+  // Check for the other states
   printf("Number of actions\n");
   if (assert(T.numActions, G->numActions) == 0) {
     allPassed = 0;
   }
+
   printf("Number of buys\n");
   if (assert(T.numBuys, G->numBuys) == 0) {
     allPassed = 0;
   }
+
   printf("Coins\n");
   if (assert(T.coins, G->coins) == 0) {
     allPassed = 0;
   }
+
+  // Check for the states of other player, victory pile, and kingdom pile
   printf("Assert state change for other players\n");
   if (assertOtherPlayerStateChange(G, &T, player) == 0) {
     allPassed = 0;
   }
+
   printf("Assert state change for victoria pile\n");
   if (assertVictoriaPileChange(G, &T) == 0) {
     allPassed = 0;
@@ -108,6 +118,7 @@ int testAdventurer(int player, int treasure, struct gameState* G) {
   if (assertKingdomPileChange(G, &T, K, 10) == 0) {
     allPassed = 0;
   }
+
   return allPassed;
 }
 
@@ -126,19 +137,24 @@ void testAdventurerRandom() {
     int total_players = floor(Random() * (MAX_PLAYERS - 1)) + MIN_PLAYERS;
 
     memset(&G, 0, sizeof(struct gameState));
-    initializeGame(total_players, K, SEED, &G);
+    int randomSeed = floor(Random() * 100);
+    initializeGame(total_players, K, randomSeed, &G);
 
     int player = floor(Random() * total_players);
     G.deckCount[player] = floor(Random() * (MAX_DECK));
 
     // test for when there are only 3 cards in the deck
     // required for when shuffle is needed
-    if (n > floor(TOTAL_RUNS * 0.5)) {
-      G.deckCount[player] = MIN_DECK_SIZE;
-    }
     G.discardCount[player] = floor(Random() * MAX_DECK);
     G.handCount[player] = floor(Random() * MAX_HAND);
     G.whoseTurn = player;
+
+    // set deck count to 0 50% time to test shuffle function
+    if (n > floor(TOTAL_RUNS * 0.5)) {
+      G.deckCount[player] = 0;
+      G.discardCount[player] = 2;
+      G.discard[player][0] = copper;
+    }
 
     // remove current treasures from deck
     for (int i = 0; i < G.deckCount[player]; i++) {
@@ -159,6 +175,12 @@ void testAdventurerRandom() {
     }
     if (treasure_choice == 2) {
       treasure = gold;
+    }
+
+    // set put at least treasures in discard to shuffle function
+    if (n > floor(TOTAL_RUNS * 0.5)) {
+      G.discard[player][0] = treasure;
+      G.discard[player][1] = treasure;
     }
 
     // insert treasures at random index in the deck
