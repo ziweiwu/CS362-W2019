@@ -363,6 +363,7 @@ public class UrlValidator implements Serializable {
             return false;
         }
 
+        // Bug Found: scheme.toUpperCase should be used instead of toLowerCase
         if (isOff(ALLOW_ALL_SCHEMES) && !allowedSchemes.contains(scheme.toLowerCase(Locale.ENGLISH))) {
             return false;
         }
