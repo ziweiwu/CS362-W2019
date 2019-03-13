@@ -676,8 +676,8 @@ int playSmithy(int currentPlayer, struct gameState *state, int handPos)
 {
   int i;
   //+3 Cards
-//  for (i = 0; i < 3; i++) // correct line
-  for (i = 0; i <= 3; i++) // bug: player gets an extra card
+  for (i = 0; i < 3; i++) // correct line
+  /*for (i = 0; i <= 3; i++) // bug: player gets an extra card*/
   {
     drawCard(currentPlayer, state);
   }
@@ -694,8 +694,8 @@ int playVillage(int currentPlayer, struct gameState *state, int handPos)
   drawCard(currentPlayer, state);
   
   //+2 Actions
-//  state->numActions = state->numActions + 2; // correct line
-    state->numActions = 2; // bug: number of actions set to 2 instead of increased by 2
+  state->numActions = state->numActions + 2; // correct line
+  /*state->numActions = 2; // bug: number of actions set to 2 instead of increased by 2*/
   
   //discard played card from hand
   discardCard(handPos, currentPlayer, state, 0);
