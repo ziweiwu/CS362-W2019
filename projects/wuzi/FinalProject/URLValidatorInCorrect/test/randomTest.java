@@ -6,8 +6,8 @@ public class randomTest extends TestCase {
 
   public static void testIsValid() {
 	// create both good and bad arrays of the different URL parts to mix and match randomly
-    String[] goodProtocol = {"http://", "https://", "ftp://"};
-    String[] badProtocol = {"://", "https:/", "ftp"};
+    String[] goodProtocol = {"http://", "https://", "ftp://", "h3t://", ""};
+    String[] badProtocol = {"://", "https:/", "ftp:", "3ht://"};
     
     String[] goodAuthority = {"www.google.com", "go.com", "0.0.0.0"};
     String[] badAuthority = {".1.2.3", "", "aaa"};
@@ -28,7 +28,7 @@ public class randomTest extends TestCase {
     
     // bad protocol
     for (int i = 0; i < 5; i++) {
-	    String badString = badProtocol[rand.nextInt(3)] + goodAuthority[rand.nextInt(3)] 
+	    String badString = badProtocol[rand.nextInt(4)] + goodAuthority[rand.nextInt(3)] 
 	    		+ goodPort[rand.nextInt(3)] + goodPath[rand.nextInt(3)];
 	    System.out.println("test bad URL " + badString);
 	    assertFalse(urlVal.isValid(badString));
@@ -36,7 +36,7 @@ public class randomTest extends TestCase {
     
     // bad authority
     for (int i = 0; i < 5; i++) {
-	    String badString = goodProtocol[rand.nextInt(3)] + badAuthority[rand.nextInt(3)] 
+	    String badString = goodProtocol[rand.nextInt(5)] + badAuthority[rand.nextInt(3)] 
 	    		+ goodPort[rand.nextInt(3)] + goodPath[rand.nextInt(3)];
 	    System.out.println("test bad URL " + badString);
 	    assertFalse(urlVal.isValid(badString));
@@ -44,7 +44,7 @@ public class randomTest extends TestCase {
    
     // bad port
     for (int i = 0; i < 5; i++) {
-	    String badString = goodProtocol[rand.nextInt(3)] + goodAuthority[rand.nextInt(3)] 
+	    String badString = goodProtocol[rand.nextInt(5)] + goodAuthority[rand.nextInt(3)] 
 	    		+ badPort[rand.nextInt(3)] + goodPath[rand.nextInt(3)];
 	    System.out.println("test bad URL " + badString);
 	    assertFalse(urlVal.isValid(badString));
@@ -52,7 +52,7 @@ public class randomTest extends TestCase {
     
     // bad path
     for (int i = 0; i < 5; i++) {
-	    String badString = goodProtocol[rand.nextInt(3)] + goodAuthority[rand.nextInt(3)] 
+	    String badString = goodProtocol[rand.nextInt(5)] + goodAuthority[rand.nextInt(3)] 
 	    		+ goodPort[rand.nextInt(3)] + badPath[rand.nextInt(3)];
 	    System.out.println("test bad URL " + badString);
 	    assertFalse(urlVal.isValid(badString));
@@ -60,7 +60,7 @@ public class randomTest extends TestCase {
     
     // all bad
     for (int i = 0; i < 5; i++) {
-	    String badString = badProtocol[rand.nextInt(3)] + badAuthority[rand.nextInt(3)] 
+	    String badString = badProtocol[rand.nextInt(4)] + badAuthority[rand.nextInt(3)] 
 	    		+ badPort[rand.nextInt(3)] + badPath[rand.nextInt(3)];
 	    System.out.println("test bad URL " + badString);
 	    assertFalse(urlVal.isValid(badString));
@@ -71,7 +71,7 @@ public class randomTest extends TestCase {
     
     // use all good components, test many combinations
     for (int i = 0; i < 30; i++) {
-	    String goodString = goodProtocol[rand.nextInt(3)] + goodAuthority[rand.nextInt(3)] 
+	    String goodString = goodProtocol[rand.nextInt(5)] + goodAuthority[rand.nextInt(3)] 
 	    		+ goodPort[rand.nextInt(3)] + goodPath[rand.nextInt(3)];
 	    System.out.println("test good URL " + goodString);
 	    assertTrue(urlVal.isValid(goodString));
