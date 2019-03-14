@@ -279,7 +279,8 @@ public class UrlValidator implements Serializable {
             }
             allowedSchemes = new HashSet<String>(schemes.length);
             for(int i=0; i < schemes.length; i++) {
-                allowedSchemes.add(schemes[i].toUpperCase(Locale.ENGLISH));
+              // bugs found: should be toLowerCase instead of toUpperCase
+                allowedSchemes.add(schemes[i].toLowerCase(Locale.ENGLISH));
 
             }
         }
@@ -362,8 +363,6 @@ public class UrlValidator implements Serializable {
         if (!SCHEME_PATTERN.matcher(scheme).matches()) {
             return false;
         }
-
-        // Bug Found: scheme.toUpperCase should be used instead of toLowerCase
         if (isOff(ALLOW_ALL_SCHEMES) && !allowedSchemes.contains(scheme.toLowerCase(Locale.ENGLISH))) {
             return false;
         }

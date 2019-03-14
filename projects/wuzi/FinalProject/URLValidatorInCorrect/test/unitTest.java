@@ -21,7 +21,6 @@ public class unitTest extends TestCase {
       System.out.println("Testing path " + path);
       assertFalse(urlVal.isValidPath(path));
     }
-
   }
 
 
@@ -29,8 +28,8 @@ public class unitTest extends TestCase {
     UrlValidator urlVal = new UrlValidator(schemes, 0);
 
 
+    String[] badAuthorityArray = {"19216811", "www..google..com", "hello world", "1.1.1.1::80"};
     String[] goodAuthorityArray = {"www.google.com", "192.168.1.1", "www.facebook.com", "1.1.1.1:80"};
-    String[] badAuthorityArray = {"www.googlecom", "192.16811", "www.facebook..com", "hello world", "1.1.1.1::80"};
 
     //assert for bad authority
     for (String authority : badAuthorityArray) {
